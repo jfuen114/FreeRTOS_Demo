@@ -3,22 +3,23 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/timers.h"
 #include "freertos/task.h"
+#include "driver/gpio.h"
 
 #include "esp_log.h"
 
 void task() {
     for(size_t i = 0; i < 5; i++) {
         printf("task %d: %lu\n", i, xTaskGetTickCount() * portTICK_PERIOD_MS);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
     }
     vTaskDelete(NULL);
 }
-
+    //test
 void app_main() {
     // char *ourTaskName = pcTaskGetName;
     // ESP_LOGI(ourTaskName, "Hello, World!");
 
-
+    
     // int count = 0;
     // while(true) {
     //     ESP_LOGI("QEMU", "running on QEMU count %d", count++);
