@@ -1,0 +1,10 @@
+- Need to continue with the video
+- Need to figure out if paths are correct with the binary files in the commands.txt
+- What does commands.txt even do? Compile maybe?
+- RTOS implementation
+    >maybe watch tutorial on RTOS concepts (what is a semaphore? what is a mutex? what is a ... etc?)
+    >learn basic RTOS functions and what they do
+- Figure out QEMU & install
+    >Might not need QEMU as hardware may arrive on time but would be a good tool to learn.
+- Figure out docker & install
+- Why is "private_include" not found in c_cpp_properties.json? Will it cause problems?

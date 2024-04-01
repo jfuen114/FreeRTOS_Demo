@@ -1,0 +1,1 @@
+/home/justin/.platformio/packages/tool-esptoolpy/esptool.py --chip esp32 merge_bin --output result.bin --fill-flash-size 4MB 0x1000 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 FreeRTOS_Demo.bin --flash_mode dio --flash_freq 40m --flash_size
