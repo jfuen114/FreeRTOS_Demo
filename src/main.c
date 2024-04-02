@@ -7,6 +7,7 @@
 
 #include "esp_log.h"
 
+
 void task() {
     for(size_t i = 0; i < 5; i++) {
         printf("task %d: %lu\n", i, xTaskGetTickCount() * portTICK_PERIOD_MS);
@@ -26,7 +27,6 @@ void app_main() {
     //     vTaskDelay(pdMS_TO_TICKS(1000));
     // }
     printf("\nTimer output in milliseconds program initiation: %lu\n\n", xTaskGetTickCount()* portTICK_PERIOD_MS);
-
     xTaskCreate(task, "mytask", 2048, NULL, 1, NULL);
 
     printf("\nProgram completion: %lu\n", xTaskGetTickCount()* portTICK_PERIOD_MS);
