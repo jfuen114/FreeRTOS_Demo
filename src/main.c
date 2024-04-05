@@ -4,8 +4,13 @@
 #include "freertos/timers.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
+#include "driver/uart.h"
+#include "driver/twai.h"
 
 #include "esp_log.h"
+
+//These pins will be used to interface to the car's can bus
+#define PIN_CAN_HIGH 5
 
 
 void task() {
@@ -15,12 +20,11 @@ void task() {
     }
     vTaskDelete(NULL);
 }
-    //test
+    //testSS
 void app_main() {
-    // char *ourTaskName = pcTaskGetName;
-    // ESP_LOGI(ourTaskName, "Hello, World!");
-
     
+    
+    gpio_set_direction(PIN_CAN_HIGH, GPIO_MODE_INPUT);
     // int count = 0;
     // while(true) {
     //     ESP_LOGI("QEMU", "running on QEMU count %d", count++);
