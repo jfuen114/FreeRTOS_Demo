@@ -1,3 +1,7 @@
+This TODO list is in order of importance (Tentatively idunno)
+-Plug in the ESP to the car and figure out what goin on :) 
+
+
 - Need to continue with the video
 - Need to figure out if paths are correct with the binary files in the commands.txt
 - What does commands.txt even do? Compile maybe?
@@ -8,3 +12,4 @@
     >Might not need QEMU as hardware may arrive on time but would be a good tool to learn.
 - Figure out docker & install
 - Why is "private_include" not found in c_cpp_properties.json? Will it cause problems?
+- Continue with TWAI (can) protocol :D

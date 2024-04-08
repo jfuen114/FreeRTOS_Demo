@@ -23,8 +23,23 @@ void task() {
 
 //In this task, we will attempt listening to a CAN signal and perhaps demodding it.
 void can_listen() {
-    
+    twai_message_t message;
+    while(1) {
+        if(twai_receive(&message, pdMS_TO_TICKS(10000)) == ESP_OK) {
+            printf("Message recieved\n");
+        }
+        else {
+            printf("Message not received (probably not plugged in yet)\n");
+        }
 
+        printf("ID is %lu\n", message.identifier);
+        if(!(message.rtr)) {
+            for(int i = 0; i < message.data_length_code; i++) {
+                printf("Data byte %d = %d\n", i, message.data[i]);
+            }
+        }
+   vTaskDelay(pdMS_TO_TICKS(100));
+   }
 }
 
 void app_main() {
@@ -36,14 +51,5 @@ void app_main() {
     printf("Attempting TWAI driver, install code :%x\n", twai_driver_install(&g_config, &t_config, &f_config));
     printf("Attempting to start TWAI driver, start code :%x\n",   twai_start()); 
     
-    gpio_set_direction(PIN_CAN_HIGH, GPIO_MODE_INPUT);
-    // int count = 0;
-    // while(true) {
-    //     ESP_LOGI("QEMU", "running on QEMU count %d", count++);
-    //     vTaskDelay(pdMS_TO_TICKS(1000));
-    // }
-    printf("\nTimer output in milliseconds program initiation: %lu\n\n", xTaskGetTickCount()* portTICK_PERIOD_MS);
-    xTaskCreate(task, "mytask", 2048, NULL, 1, NULL);
-
-    printf("\nProgram completion: %lu\n", xTaskGetTickCount()* portTICK_PERIOD_MS);
+    xTaskCreate(can_listen, "can_listen", 2048, NULL, 1, NULL);
 }
