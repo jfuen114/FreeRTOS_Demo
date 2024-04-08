@@ -1,5 +1,8 @@
 This TODO list is in order of importance (Tentatively idunno)
+
+
 -Plug in the ESP to the car and figure out what goin on :) 
+
 
 
 - Need to continue with the video
